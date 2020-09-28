@@ -15,12 +15,17 @@ def create_app(config_class=config.DevConfig):
     def root():
         return render_template("index.html")
 
-    @app.route("/add", methods=["GET"])
+    @app.route("/add", methods=["GET", "POST"])
     def add():
         form = forms.RecipeForm()
         if form.validate():
-            pass
-        return render_template("add.html")
+            if form.ingredients:
+                print(form.ingredients.data)
+                print(form.title.data)
+                print(form.link.data)
+                print(form.data)
+
+        return render_template("add.html", form=form)
     
     @app.route("/search", methods=["GET"])
     def search():
