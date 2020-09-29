@@ -8,7 +8,10 @@
     <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Custom CSS -->
-
+    <link href="{{ url_for('static', filename='css/vendor/tagsinput.css') }}" rel="stylesheet" media="all">
+    <!-- Jquery JS-->
+  <script src="{{ url_for('static', filename='js/vendor/jquery-3.5.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/vendor/tagsinput.js') }}"></script>
     <title>{{ title }}</title>
 </head>
 

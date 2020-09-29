@@ -6,6 +6,7 @@ from soup.extensions import db
 
 manager = Manager(create_app)
 
+
 @manager.command
 def initdb():
     """ Initialize database.
@@ -17,6 +18,7 @@ def initdb():
         db.session.commit()
         print("---old db removed---")
         print("---new db created---")
+
 
 if __name__ == "__main__":
     manager.run()
