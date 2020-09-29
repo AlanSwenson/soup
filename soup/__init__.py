@@ -33,8 +33,10 @@ def create_app(config_class=config.DevConfig):
                 recipe = Recipe(title=form.title.data, link=form.link.data)
                 recipe.save()
                 for item in ingredients:
+                    item = item.strip()
                     ingredient = Ingredient(recipe=recipe, name=item)
                     ingredient.save()
+                redirect(url_for("add"))
         return render_template("add.html", form=form)
 
     @app.route("/search", methods=["GET"])
