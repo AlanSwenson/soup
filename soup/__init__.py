@@ -6,18 +6,18 @@ from .extensions import db, migrate
 from .models import Recipe, Ingredient
 
 
-
 def create_app(config_class=config.DevConfig):
-    app = Flask(__name__, static_folder='../build', static_url_path='/')
+    app = Flask(__name__, static_folder="../build", static_url_path="/")
     app.config.from_object(config_class)
 
     with app.app_context():
         initialize_extensions(app)
 
-    @app.route('/message')
+    @app.route("/message")
     def hello_world():
-        return {'flask_message':'Hello, from Flask Backend!'}
-    @app.route('/api', methods=["GET", "POST"])
+        return {"flask_message": "Hello, from Flask Backend!"}
+
+    @app.route("/api", methods=["GET", "POST"])
     def api():
         req_data = request.get_json()
         print(req_data.get("ingredients"))
@@ -31,25 +31,23 @@ def create_app(config_class=config.DevConfig):
             ingredient = Ingredient(recipe=recipe, name=item)
             ingredient.save()
 
-        return {'flask_message': "" }
+        return {"flask_message": ""}
 
-
-
-    @app.route('/')
+    @app.route("/")
     def index():
-        return app.send_static_file('index.html')
-    
+        return app.send_static_file("index.html")
+
     @app.route("/add", methods=["GET", "POST"])
     def add():
         form = forms.RecipeForm()
         if form.validate():
-            if request.method == 'POST':
+            if request.method == "POST":
                 print(form.ingredients.data)
                 print(form.title.data)
                 print(form.link.data)
                 print(form.data)
-                s = request.form.getlist('ingredients')[1]
-                ingredients = s.split(',')
+                s = request.form.getlist("ingredients")[1]
+                ingredients = s.split(",")
                 print(f"Ingredients: {ingredients}")
                 recipe = Recipe(title=form.title.data, link=form.link.data)
                 recipe.save()
