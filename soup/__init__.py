@@ -25,11 +25,11 @@ def create_app(config_class=config.DevConfig):
         link = req_data.get("link")
         ingredients = req_data.get("ingredients")
         recipe = Recipe(title=title, link=link)
-        recipe.save()
         for item in ingredients:
             item = item.strip()
-            ingredient = Ingredient(recipe=recipe, name=item)
-            ingredient.save()
+            ingredient = Ingredient.get_or_create(name=item)
+            recipe.ingredients.append(ingredient)
+        recipe.save()
 
         return {"flask_message": ""}
 

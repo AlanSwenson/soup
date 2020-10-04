@@ -1,8 +1,15 @@
 """Models using SQLAlchemy"""
-from sqlalchemy import Column
+from sqlalchemy import Column, Table
 
 
 from .extensions import db
+
+association_table = Table(
+    "association",
+    db.Model.metadata,
+    Column("recipe_id", db.Integer, db.ForeignKey("recipe.id")),
+    Column("ingredient_id", db.Integer, db.ForeignKey("ingredient.id")),
+)
 
 
 class Recipe(db.Model):
@@ -16,7 +23,9 @@ class Recipe(db.Model):
 
     link = db.Column(db.String(500))
 
-    ingredients = db.relationship("Ingredient", backref="recipe", lazy="dynamic")
+    ingredients = db.relationship(
+        "Ingredient", secondary=association_table, back_populates="recipes"
+    )
 
     def save(self):
         """Save Order in db"""
@@ -31,7 +40,9 @@ class Ingredient(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    recipe_id = Column(db.Integer, db.ForeignKey("recipe.id"))
+    recipes = db.relationship(
+        "Recipe", secondary=association_table, back_populates="ingredients"
+    )
 
     name = db.Column(db.String(120))
 
@@ -39,3 +50,12 @@ class Ingredient(db.Model):
         """Save Order in db"""
         db.session.add(self)
         db.session.commit()
+
+    @classmethod
+    def get_or_create(cls, name):
+        exists = (
+            db.session.query(Ingredient.id).filter_by(name=name).scalar() is not None
+        )
+        if exists:
+            return db.session.query(Ingredient).filter_by(name=name).first()
+        return cls(name=name)
