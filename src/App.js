@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, InputGroup, FormGroup, TagInput, Navbar, Alignment } from "@blueprintjs/core";
 import './App.css';
 import '../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css';
 import '../node_modules/@blueprintjs/core/lib/css/blueprint.css';
 
 function App() {
-const [flaskMessage, setFlaskMessage] = useState("no message set");
 const [title, setTitle] = useState("");
 const [link, setLink] = useState("");
 const [ingredients, setIngredients] = useState([]);
@@ -31,12 +30,6 @@ const [ingredients, setIngredients] = useState([]);
 			}
 		)
 	}
-	  useEffect(() => {
-    fetch('/message').then(
-      res => res.json().then(data => {
-        setFlaskMessage(data.flask_message);
-      }))
-  }, []);
 
   return (
 	  
@@ -53,7 +46,7 @@ const [ingredients, setIngredients] = useState([]);
 
 
 
-        	  <h1>{flaskMessage}</h1>
+        	  <h1>Add Recipe</h1>
 	<form onSubmit={handleSubmit}>
 	  <FormGroup
 	  label="Title"

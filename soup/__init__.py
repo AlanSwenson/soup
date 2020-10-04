@@ -13,10 +13,6 @@ def create_app(config_class=config.DevConfig):
     with app.app_context():
         initialize_extensions(app)
 
-    @app.route("/message")
-    def hello_world():
-        return {"flask_message": "Hello, from Flask Backend!"}
-
     @app.route("/api", methods=["GET", "POST"])
     def api():
         req_data = request.get_json()
@@ -36,31 +32,6 @@ def create_app(config_class=config.DevConfig):
     @app.route("/")
     def index():
         return app.send_static_file("index.html")
-
-    @app.route("/add", methods=["GET", "POST"])
-    def add():
-        form = forms.RecipeForm()
-        if form.validate():
-            if request.method == "POST":
-                print(form.ingredients.data)
-                print(form.title.data)
-                print(form.link.data)
-                print(form.data)
-                s = request.form.getlist("ingredients")[1]
-                ingredients = s.split(",")
-                print(f"Ingredients: {ingredients}")
-                recipe = Recipe(title=form.title.data, link=form.link.data)
-                recipe.save()
-                for item in ingredients:
-                    item = item.strip()
-                    ingredient = Ingredient(recipe=recipe, name=item)
-                    ingredient.save()
-                redirect(url_for("add"))
-        return render_template("add.html", form=form)
-
-    @app.route("/search", methods=["GET"])
-    def search():
-        return render_template("search.html")
 
     return app
 
