@@ -18,9 +18,13 @@ function App() {
 
 		<div className="App">
 			<header className="App-header">
-				<Nav />
-
-				<Add />
+				<Router>
+					<Nav />
+					<Switch>
+						<Route path="/" exact />
+						<Route path="/add" component={Add} />
+					</Switch>
+				</Router>
 
 			</header>
 		</div>
