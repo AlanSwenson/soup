@@ -1,3 +1,7 @@
+# react modules and build are created
+*build
+*node_modules
+
 *.DS_Store
 
 # Byte-compiled / optimized / DLL files
