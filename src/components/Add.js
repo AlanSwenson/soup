@@ -16,7 +16,7 @@ export function Add() {
             "link": link,
             "ingredients": ingredients
         }
-        fetch('/api', {
+        fetch('/create_recipe', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: { 'Content-Type': 'application/json' },

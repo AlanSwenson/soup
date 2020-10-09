@@ -10,10 +10,10 @@ class Nav extends React.Component {
                     <Navbar.Heading>Recipes</Navbar.Heading>
                     <Navbar.Divider />
                     <Link to="/search"><Button className="bp3-minimal" icon="search" text="Seach" /></Link>
-                    <Button className="bp3-minimal" icon="book" text="Collection" />
+                    <Link to="/collection"><Button className="bp3-minimal" icon="book" text="Collection" /></Link>
                     <Link to="/add"><Button className="bp3-minimal" icon="plus" text="Add" /></Link>
                 </Navbar.Group>
-            </Navbar>
+            </Navbar >
         );
 
     }

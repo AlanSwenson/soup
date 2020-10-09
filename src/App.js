@@ -10,6 +10,7 @@ import '../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css';
 import '../node_modules/@blueprintjs/core/lib/css/blueprint.css';
 import Add from './components/Add.js';
 import Nav from './components/Nav.js';
+import CollectionList from './components/Collection.js';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
 					<Switch>
 						<Route path="/" exact />
 						<Route path="/add" component={Add} />
+						<Route path="/collection" component={CollectionList} />
 					</Switch>
 				</Router>
 

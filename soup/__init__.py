@@ -13,8 +13,8 @@ def create_app(config_class=config.DevConfig):
     with app.app_context():
         initialize_extensions(app)
 
-    @app.route("/api", methods=["GET", "POST"])
-    def api():
+    @app.route("/create_recipe", methods=["GET", "POST"])
+    def create_recipe():
         req_data = request.get_json()
         print(req_data.get("ingredients"))
         title = req_data.get("title")
@@ -28,6 +28,21 @@ def create_app(config_class=config.DevConfig):
         recipe.save()
 
         return {"flask_message": ""}
+
+    @app.route("/list_recipes", methods=["GET", "POST"])
+    def list_recipes():
+        recipes = db.session.query(Recipe).all()
+        collection = []
+        for recipe in recipes:
+            recipe_dict = {
+                "title": recipe.title,
+                "link": recipe.link,
+                "ingredients": [],
+            }
+            for ingredient in recipe.ingredients:
+                recipe_dict["ingredients"].append(ingredient.name)
+            collection.append(recipe_dict)
+        return {"collection": collection}
 
     @app.route("/")
     def index():
