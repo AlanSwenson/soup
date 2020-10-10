@@ -18,17 +18,18 @@ function App() {
 	return (
 
 		<div className="App">
-			<header className="App-header">
-				<Router>
+			<Router>
+				<header className="App-header">
 					<Nav />
+				</header>
+				<section className="App-body">
 					<Switch>
 						<Route path="/" exact />
 						<Route path="/add" component={Add} />
-						<Route path="/collection" component={CollectionList} />
+						<Route path="/recipes" component={CollectionList} />
 					</Switch>
-				</Router>
-
-			</header>
+				</section>
+			</Router>
 		</div>
 	);
 }

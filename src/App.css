@@ -2,33 +2,37 @@
   text-align: center;
 }
 
-
-
 .App-header {
   background-color: #282c34;
+}
+
+.App-body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+  background-color: white;
+  margin-top: 50px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-
 .wrapper {
   list-style-type: none;
   padding: 0;
   border-radius: 3px;
 }
+
 .bp3-form-group {
   display: flex;
   justify-content: flex-end;
 }
+
 .bp3-form-group label {
   padding: .5em 1em .5em 0;
   flex: 1;
@@ -49,10 +53,12 @@
   padding: .5em 1em .5em 0;
   flex: 2;
 }
+
 .bp3-input-group input,
 .form-row > button {
   padding: .5em;
 }
+
 .form-row > button {
  border: 0;
 }
