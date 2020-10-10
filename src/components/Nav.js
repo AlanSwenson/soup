@@ -13,6 +13,7 @@ class Nav extends React.Component {
                     <InputGroup id="search"
                         placeholder="Search"
                         type="search"
+                        leftIcon="search"
                     />
                     <Link to="/restaurants"><Button className="bp3-minimal" icon="shop" text="Restaurants" /></Link>
                     <Link to="/recipes"><Button className="bp3-minimal" icon="book" text="Recipes" /></Link>
