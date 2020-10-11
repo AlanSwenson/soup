@@ -6,6 +6,7 @@ import { InputGroup } from "@blueprintjs/core";
 
 export function Nav() {
     const [isOpen, setOpen] = useState(false)
+    const handleLink = (e) => setOpen(false)
 
     return (
         <div>
@@ -16,9 +17,9 @@ export function Nav() {
             { isOpen ?
                 <div class="d-flex justify-flex-end d-none-md">
                     <Menu>
-                        <Menu.Item icon="shop" text="Restaurants" />
-                        <Menu.Item icon="book" text="Recipes" />
-                        <Menu.Item icon="plus" text="Add" />
+                        <Link to="/restaurants" onClick={handleLink}><Menu.Item icon="shop" text="Restaurants" /></Link>
+                        <Link to="/recipes" onClick={handleLink}><Menu.Item icon="book" text="Recipes" /></Link>
+                        <Link to="/add" onClick={handleLink}><Menu.Item icon="plus" text="Add" /></Link>
                     </Menu>
 
                 </div> : (

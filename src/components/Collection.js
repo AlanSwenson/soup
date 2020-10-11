@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Button, InputGroup, FormGroup, TagInput } from "@blueprintjs/core";
 
 export function CollectionList() {
 
@@ -22,13 +21,13 @@ export function CollectionList() {
         <div class="collection-container">
             <h1>Recipe Collection</h1>
             {collectionList.map(item => (
-                <p>{item.title} - {item.link}
+                <div>{item.title} - {item.link}
                     <ul>
                         {item.ingredients.map(ingredient => (
                             <li>{ingredient}</li>
                         ))}
                     </ul>
-                </p>
+                </div>
             ))
             }
         </div>
