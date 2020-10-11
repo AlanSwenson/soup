@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
-	Link
 } from "react-router-dom";
 import './App.css';
 import '../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css';
 import '../node_modules/@blueprintjs/core/lib/css/blueprint.css';
 import Add from './components/Add.js';
 import Nav from './components/Nav.js';
-import CollectionList from './components/Collection.js';
+import Recipes from './components/Recipes.js';
 import Restaurants from './components/Restaurants.js';
 
 function App() {
@@ -27,7 +26,7 @@ function App() {
 					<Switch>
 						<Route path="/" exact />
 						<Route path="/add" component={Add} />
-						<Route path="/recipes" component={CollectionList} />
+						<Route path="/recipes" component={Recipes} />
 						<Route path="/restaurants" component={Restaurants} />
 					</Switch>
 				</section>

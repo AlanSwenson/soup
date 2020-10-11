@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export function CollectionList() {
+export function Recipes() {
 
     const [collectionList, setCollectionList] = useState([]);
 
@@ -19,7 +19,7 @@ export function CollectionList() {
 
     return (
         <div class="collection-container">
-            <h1>Recipe Collection</h1>
+            <h1>Recipes</h1>
             {collectionList.map(item => (
                 <div>{item.title} - {item.link}
                     <ul>
@@ -35,4 +35,4 @@ export function CollectionList() {
 
 }
 
-export default CollectionList;
+export default Recipes;
