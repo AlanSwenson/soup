@@ -9,15 +9,17 @@
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: black;
-  background-color: white;
+  background-color: #eae7dc;
+  margin-top: 80px;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-.hamburger-react {
-  margin: 11px;
+div.bp3-navbar {
+  padding: 15px;
+  background-color: #eae7dc;
 }
 
 .d-flex {
@@ -29,20 +31,17 @@
 }
 
 @media (max-width: 767px) {
-  div.bp3-navbar {
+  div.sm-menu {
     display: none;
   }
 }
 
 @media (min-width: 768px) {
-  .hamburger-react {
-    display: none;
-  }
-  .App-body {
+  /* .App-body {
     margin-top: 50px;
-  }
+  } */
 
-  .d-none-md {
+  .d-none-md, .hamburger-react {
     display: none;
   }
 }
