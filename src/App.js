@@ -11,6 +11,7 @@ import '../node_modules/@blueprintjs/core/lib/css/blueprint.css';
 import Add from './components/Add.js';
 import Nav from './components/Nav.js';
 import CollectionList from './components/Collection.js';
+import Restaurants from './components/Restaurants.js';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
 						<Route path="/" exact />
 						<Route path="/add" component={Add} />
 						<Route path="/recipes" component={CollectionList} />
+						<Route path="/restaurants" component={Restaurants} />
 					</Switch>
 				</section>
 			</Router>
