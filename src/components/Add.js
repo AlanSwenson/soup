@@ -1,25 +1,33 @@
 import React, { useState } from 'react';
-import { Button, InputGroup, FormGroup, TagInput } from "@blueprintjs/core";
+import { Button, InputGroup, FormGroup, TagInput, FileInput } from "@blueprintjs/core";
 
 export function Add() {
 
     const [title, setTitle] = useState("");
     const [link, setLink] = useState("");
     const [ingredients, setIngredients] = useState([]);
+    const [selectedFile, setSelectedFile] = useState(null);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(title);
         console.log(link);
         console.log(ingredients);
+        console.log(selectedFile);
         const data = {
             "title": title,
             "link": link,
-            "ingredients": ingredients
+            "ingredients": ingredients,
+            "file": selectedFile
+        }
+        const formData = new FormData();
+
+        for (const name in data) {
+            formData.append(name, data[name]);
         }
         fetch('/create_recipe', {
             method: 'POST',
-            body: JSON.stringify(data),
-            headers: { 'Content-Type': 'application/json' },
+            body: formData,
         }).then(data => {
             setIngredients([]);
             setLink("");
@@ -63,6 +71,7 @@ export function Add() {
                         />
                     </FormGroup>
 
+
                     <FormGroup
                         label="Ingredients"
                         labelFor="ingredients"
@@ -77,7 +86,7 @@ export function Add() {
                             placeholder='Ingredients'
                         />
                     </FormGroup>
-
+                    <FileInput text="Choose file..." value={selectedFile} onInputChange={(e) => setSelectedFile(e.target.files[0])} />
 
                     <Button intent="success" text="Add" type="submit" />
                 </div>

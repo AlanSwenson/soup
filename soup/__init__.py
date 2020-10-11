@@ -15,11 +15,12 @@ def create_app(config_class=config.DevConfig):
 
     @app.route("/create_recipe", methods=["GET", "POST"])
     def create_recipe():
-        req_data = request.get_json()
-        print(req_data.get("ingredients"))
+        req_data = request.form.to_dict()
         title = req_data.get("title")
         link = req_data.get("link")
         ingredients = req_data.get("ingredients")
+        ingredients = ingredients.split(",")
+        new_file = request.files.get("file")
         recipe = Recipe(title=title, link=link)
         for item in ingredients:
             item = item.strip()
