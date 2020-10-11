@@ -8,11 +8,11 @@
 
 $main-font: 'Work Sans';
 
-$base-color: #eae7dc;
+$base-color: #f6f6f2;
 $secondary-color: #d8c3a5;
 $dark-color: #8e8d8a;
 $coral-color: #e98074;
-$dark-coral-color: #e85a4f;
+$custom-light-teal: #6fb3b8;
 
 .App {
   text-align: center;
@@ -24,7 +24,7 @@ $dark-coral-color: #e85a4f;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: black;
+  color: $custom-light-teal;
   background-color: $base-color;
   margin-top: 80px;
   font-family: $main-font;
@@ -38,12 +38,13 @@ div.bp3-navbar {
   padding: 15px;
   background-color: $base-color;
   height: unset;
+  box-shadow: 0px 1px 10px #999;
 }
 
 div.bp3-navbar-heading {
-  color: $dark-coral-color;
+  color: $custom-light-teal;
   font-family: $main-font;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 22px;;
   text-transform: lowercase;
   letter-spacing: 1px;
@@ -64,7 +65,7 @@ div.bp3-navbar-heading {
 div.sm-menu {
   font-family: $main-font;
   a button span {
-    color: $dark-coral-color;
+    color: $custom-light-teal;
   }
   
 }
