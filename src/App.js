@@ -4,7 +4,7 @@ import {
 	Switch,
 	Route,
 } from "react-router-dom";
-import './App.css';
+import './App.scss';
 import '../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css';
 import '../node_modules/@blueprintjs/core/lib/css/blueprint.css';
 import Add from './components/Add.js';

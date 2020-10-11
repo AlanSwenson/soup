@@ -1,3 +1,19 @@
+// @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..1000&display=swap');
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('./fonts/WorkSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 1 999;
+}
+
+$main-font: 'Work Sans';
+
+$base-color: #eae7dc;
+$secondary-color: #d8c3a5;
+$dark-color: #8e8d8a;
+$coral-color: #e98074;
+$dark-coral-color: #e85a4f;
+
 .App {
   text-align: center;
 }
@@ -9,8 +25,9 @@
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: black;
-  background-color: #eae7dc;
+  background-color: $base-color;
   margin-top: 80px;
+  font-family: $main-font;
 }
 
 .App-link {
@@ -19,7 +36,17 @@
 
 div.bp3-navbar {
   padding: 15px;
-  background-color: #eae7dc;
+  background-color: $base-color;
+  height: unset;
+}
+
+div.bp3-navbar-heading {
+  color: $dark-coral-color;
+  font-family: $main-font;
+  font-weight: 300;
+  font-size: 22px;;
+  text-transform: lowercase;
+  letter-spacing: 1px;
 }
 
 .d-flex {
@@ -30,6 +57,18 @@ div.bp3-navbar {
   justify-content: flex-end;
 }
 
+.hamburger-react {
+  color: $dark-color;
+}
+
+div.sm-menu {
+  font-family: $main-font;
+  a button span {
+    color: $dark-coral-color;
+  }
+  
+}
+
 @media (max-width: 767px) {
   div.sm-menu {
     display: none;
@@ -37,9 +76,6 @@ div.bp3-navbar {
 }
 
 @media (min-width: 768px) {
-  /* .App-body {
-    margin-top: 50px;
-  } */
 
   .d-none-md, .hamburger-react {
     display: none;
@@ -89,4 +125,9 @@ div.bp3-navbar {
 
 .add-container {
   width: 40vw;
+}
+
+div ul{
+  list-style: none;
+  padding: 0;
 }
