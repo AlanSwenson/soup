@@ -23,6 +23,8 @@ class Recipe(db.Model):
 
     link = db.Column(db.String(500))
 
+    image = db.Column(db.String(500))
+
     ingredients = db.relationship(
         "Ingredient", secondary=association_table, back_populates="recipes"
     )

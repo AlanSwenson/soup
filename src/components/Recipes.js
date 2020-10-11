@@ -23,6 +23,7 @@ export function Recipes() {
             {collectionList.map(item => (
                 <div>{item.title} - {item.link}
                     <ul>
+                        <li><img src={item.image}></img></li>
                         {item.ingredients.map(ingredient => (
                             <li>{ingredient}</li>
                         ))}

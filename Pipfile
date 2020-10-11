@@ -13,6 +13,7 @@ psycopg2-binary = "*"
 flask-wtf = "*"
 wtforms-alchemy = "*"
 flask-script = "*"
+boto3 = "*"
 
 [dev-packages]
 black = "*"
