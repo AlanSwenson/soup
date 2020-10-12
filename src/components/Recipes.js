@@ -21,13 +21,21 @@ export function Recipes() {
         <div class="collection-container">
             <h1>Recipes</h1>
             {collectionList.map(item => (
-                <div>{item.title} - {item.link}
-                    <ul>
-                        <li><img src={item.image}></img></li>
-                        {item.ingredients.map(ingredient => (
-                            <li>{ingredient}</li>
-                        ))}
-                    </ul>
+                <div class="d-flex recipe-container">
+                    <div class="img-container">
+                        <img src={item.image}></img>
+                    </div>
+                    <div class="">
+                        <h2>{item.title}</h2>
+
+
+                        {item.link}
+                        <ul>
+                            {item.ingredients.map(ingredient => (
+                                <li>{ingredient}</li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             ))
             }

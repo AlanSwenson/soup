@@ -132,3 +132,23 @@ div ul{
   list-style: none;
   padding: 0;
 }
+
+.collection-container {
+  width: 85vw;
+
+  .recipe-container div {
+    width: 50%;
+  }
+
+  .recipe-container:nth-child(2n+0) {
+    flex-direction: row-reverse;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.img-container {
+  width: 50%;
+}
