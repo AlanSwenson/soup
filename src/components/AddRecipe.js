@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, InputGroup, FormGroup, TagInput, FileInput } from "@blueprintjs/core";
 
-export function Add() {
+export function AddRecipe() {
 
     const [title, setTitle] = useState("");
     const [link, setLink] = useState("");
@@ -96,4 +96,4 @@ export function Add() {
 
 }
 
-export default Add;
+export default AddRecipe;
